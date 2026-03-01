@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Theme — White, Black, Blue */
+    --background: 0 0% 98%;
+    --foreground: 220 20% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 8%;
+
+    --primary: 213 94% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 220 20% 15%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 213 94% 48%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 38%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 213 94% 48%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 96%;
+    --sidebar-foreground: 220 20% 8%;
+    --sidebar-primary: 213 94% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 92%;
+    --sidebar-accent-foreground: 220 20% 15%;
+    --sidebar-border: 214 20% 88%;
+    --sidebar-ring: 213 94% 48%;
+
+    /* Custom tokens */
+    --nav-bg: 0 0% 100%;
+    --tag-positive: 142 71% 38%;
+    --tag-negative: 0 80% 55%;
+    --mono-font: 'JetBrains Mono', monospace;
+  }
+
+  .dark {
+    /* Dark Theme — Black, Gold, Grey */
+    --background: 0 0% 6%;
+    --foreground: 40 10% 90%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 40 10% 88%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 40 10% 88%;
+
+    --primary: 43 89% 55%;
+    --primary-foreground: 0 0% 6%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 40 8% 80%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 50%;
+
+    --accent: 43 89% 55%;
+    --accent-foreground: 0 0% 6%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 60% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 6%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 43 89% 55%;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 40 8% 80%;
+    --sidebar-primary: 43 89% 55%;
+    --sidebar-primary-foreground: 0 0% 6%;
+    --sidebar-accent: 0 0% 14%;
+    --sidebar-accent-foreground: 40 8% 80%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 43 89% 55%;
+
+    --nav-bg: 0 0% 8%;
+    --tag-positive: 142 60% 42%;
+    --tag-negative: 0 72% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer components {
+  .tag-positive {
+    @apply text-xs px-2 py-0.5 rounded-full font-medium;
+    background: hsl(var(--tag-positive) / 0.12);
+    color: hsl(var(--tag-positive));
+  }
+  .tag-negative {
+    @apply text-xs px-2 py-0.5 rounded-full font-medium;
+    background: hsl(var(--tag-negative) / 0.12);
+    color: hsl(var(--tag-negative));
+  }
+  .tag-neutral {
+    @apply text-xs px-2 py-0.5 rounded-full font-medium bg-muted text-muted-foreground;
+  }
+  .address-text {
+    font-family: 'JetBrains Mono', monospace;
+    @apply text-xs;
+  }
+  .data-table th {
+    @apply text-xs font-medium text-muted-foreground uppercase tracking-wide px-3 py-2 text-left;
+  }
+  .data-table td {
+    @apply px-3 py-2 text-sm border-t border-border;
+  }
+  .data-table tr:hover td {
+    @apply bg-muted/50;
+  }
+}
